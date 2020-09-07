@@ -1,0 +1,188 @@
+Python(Guido van Rossum 1985-1990 at National Research Institute of Mathematics and Computer Science in Netherlands): Interpreted, Interactive, object oriented, functional, structure(Procedureal), can be used as scripting language or can be compiled to byte code, Dynamic data type(we can change the data type by assigning diff variable at run time), Dynamic type checking, automatic garbage collection.
+
+Python is named after a TV Show called ëMonty Pythonís Flying Circusí.
+
+
+python 2 is going to stop getting security update from 2020
+Python 3.0 was released in 2008.
+
+Python Enviroment Variable:Pythonpath, pythonstartup, pythoncaseok, pythonhome
+
+Python Command line options: -d(It provides debug output), -O(It generates optimized bytecode (resulting in .pyo files)), -S(Do not run import site to look for Python paths on startup), -v(verbose output (detailed trace on import statements)), -X(disable class-based built-in exceptions (just use strings); obsolete starting with version 1.6.), -c cmd(run Python script sent in as cmd string), file(run Python script from given file)
+
+Python is casesenstive language.
+
+Identifier(Python is a case sestive language): Start with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9) or A-Z or a-z.
+	1. Starting an identifier with a single leading underscore indicates that the identifier is private.
+	2. Starting an identifier with two leading underscores indicates a strongly private identifier.
+	3. If the identifier also ends with two trailing underscores, the identifier is a language-defined special name.
+	4. Identifier can be of any length
+
+
+Multi Line Statements:	Statements in Python typically end with a new line. Python does, however, allow the use of the line continuation character (\) to denote that the line should continue
+	ex: total = item_one + \
+        item_two + \
+        item_three
+Statements contained within the [], {}, or () brackets do not need to use the line continuation character.
+
+Comments: #
+
+assert Keyword: 
+	1. used for debugging process
+	2. While programming, sometimes we wish to know the internal state or check if our assumptions are true. assert helps us do this and find bugs 	   more 	conveniently. assert is followed by a condition.
+	3. If the condition is true, nothing happens. But if the condition is false, AssertionError is raised. For example:
+	
+	structure : assert condition, message(msg if assertion error is raised)
+
+global: global is used to declare that a variable inside the function is global (outside the function).
+nonlocal: same as glocal used for nested function
+
+Diff between is and ==:
+			is is used in Python for testing object identity. While the == operator is used to test if two variables are equal or not, is is used to test 			if the two variables refer to the same object.
+	1. Mutable object will be created in diff localtion everytime even if they have same value
+	2. Immutable objects will created in same location for small length(interpreter check if a object is already their in heap with same value then it will not create a same object otherwise it will create a new object, works only for small length object)
+
+
+
+with:
+
+Notes:
+1. semocolon(;) allow mutli-statement in a single line 
+2. No enclosing Delimiters is any set of multiple objects, comma-separated, written without identifying symbols, i.e., brackets for lists, parentheses for tuples,         etc., default to tuples
+2. For loop takes a interator object
+3. Mutiple assignment: a,b= 1,2 or a,b,c=3
+4. del var[ ,var....] #used to delete the variable 
+4. mutiple value without any type of bracket is default to tuple 
+5. while pritning any of the number it will result into decimal literal only
+6. type() or isinstance() or global() or local() or dir(module_name)#returns a sorted list of strings containing the names defined by a module function and variable
+, reload(module_name) #reload function imports a previously imported module again 
+7. A module is loaded only once, regardless of the number of times it is imported. This prevents the module execution from happening repeatedly, if multiple imports occur.
+Locating Modules
+	When you import a module, the Python interpreter searches for the module in the following sequences −
+		1. The current directory.
+		2. If the module is not found, Python then searches each directory in the shell variable PYTHONPATH.
+		3. If all else fails, Python checks the default path.
+	The module search path is stored in the system module sys as the sys.path variable. The sys.path variable contains the current directory, PYTHONPATH, and the installation-dependent default.
+8.You can provide except clause(s), or a finally clause, but not both. 
+9. You cannot use else clause as well along with a finally clause.
+
+
+
+
+
+
+5.Difference between python2 and python 3
+	http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html
+	http://chhantyal.net/py3readiness/#.XkrVCSgzbIU
+
+6. resources
+	notebooks:https://github.com/Pierian-Data/Complete-Python-3-Bootcamp
+	Slides:https://drive.google.com/drive/folders/1cAM251bjoBCYF2bHfMM07MOGEgU2Q2VQ?usp=sharing
+
+7.Python 3 stores strings as Unicode, by default,  We have Unicode (utf-8) and 2 byte classes: byte and bytearray.
+ex-
+1. print('Python', python_version(), end="")
+   print(' has', type(b' bytes for storing data'))
+
+   o/p-Python 3.4.1 has <class 'bytes'>
+
+2. print('and Python', python_version(), end="")
+   print(' also has', type(bytearray(b'bytearrays')))
+
+   o/p-and Python 3.4.1 also has <class 'bytearray'>
+
+8. Timeit library is used to measure the execution time of a python code snippet
+ 	import timeit
+	%timeit test_range(n)?-after importing the timeit module call in same syntex it will give the time taken by module  
+
+11. Why doesn't 0.1+0.2-0.3 is equal to 0.0
+    	https://docs.python.org/2/tutorial/floatingpoint.html
+
+12. python is dynamic type because we can reasign variable different data type
+    cons for dynamic typing is that we don't know the type of variable after it's reassigned , so we have to careful about datatype using type() function
+
+13. revrese indexing start at -1 but the first element would be fecthed only using zero it will not work with negative index.
+
+17. print formatting
+	https://pyformat.info/
+
+18. ordereddict object keep order of dictonary 
+
+19.to write a file from jupyter itself use %%writefile myfile.txt and below this command type text that file would contain 
+
+20.Basic Practice:
+	http://codingbat.com/python
+
+More Mathematical (and Harder) Practice:
+	https://projecteuler.net/archives
+
+List of Practice Problems:
+	http://www.codeabbey.com/index/task_list
+
+A SubReddit Devoted to Daily Practice Problems:
+	https://www.reddit.com/r/dailyprogrammer
+
+A very tricky website with very few hints and touch problems (Not for beginners but still interesting)
+	http://www.pythonchallenge.com/
+
+
+21. for loop convert the paas object into iterable object 
+
+22. zip()#combine the every nth position value of passed object and result into list of tuple
+#if there is umcommon number of items in those passed object , it will zip till every passed object have items ,rest it will leave
+
+enumrate(iterable object)#it will give list of tuple with every first element as number start from zero
+
+23. we can use the help() builtin function to get information of any builtin object  in python
+
+24. *args and **kwargs(name of variable could be anything)
+*args is tuple of values(we can paas multiple value from calling function)
+**kwargs is multiple key value pair passed from calling and result into a disctonary of name kwargs within function  
+we can also use both at the same time first args  then kwargs
+
+Note:
+when we are using positional and keyword argument both then first use the positional then keyword , for vice-versa it will give error 
+
+25.python support multiple inheritance and resolve from left to right 
+Inheritance-we can override the method but can not overload method in python 
+Polymorphism- we can use it in abstract class(abstract class have method which have to implement by subclass) just raise an error in base class method
+
+26. all the methods that start from double underscore are magic/Dunder methods , have used for special purpose 
+ex. __str__ used for string rep that we want to print when object of user defined class is passed to it 
+or __len__ when your user defined object is passed to len() function or __del__ when object is passed to del object statement 
+
+
+27. pypi is repo for open-source third-party python package and PIP is used to download the package from pypi 
+
+28. package is collection of module(and package and subpackage must have a __init__.py file )
+
+29. if__name__=='__main__'":use only for finding and running some statements if the file run directly 
+The file which we are runing have a varable __name__ that is assigned at run time as '__main__'(because this is the file from where file start to run) but if it is a imported file then __name__ is something else
+if it is imported then the file in which it is imported have variable __name__ as '__main__'
+when we import the file it will run first all the statement at zero indentation 
+
+
+30. Try-contain code, Except-if there is error in try block , else-if there is no error in try block, finally-always run
+
+
+31.unit testing -we can use different testing tool pylint,unittest
+
+
+32.Decorator are just function that take a function as argument and return sub function that is used to add more functionality over a function
+and use the decorator function name as @decorator_name over a function of which functionality we are enhancing 
+
+33.Logging in Python 
+	https://realpython.com/python-logging/
+
+
+33. https://docs.google.com/document/d/1TfB48iJcCAPaQYiOgB70_QgBXyGaU33nYyUZ6lgtLl8/edit -all course by jose 
+
+
+36. Use ! mark to run cmd command in jupyter.
+
+################################Discord  Channel################################
+You can access this chat room by signing up through this link: https://discord.gg/TztE6B8
+For full details on the new chat server, check out this explanatory video: https://www.youtube.com/watch?v=bkH89OJ001M
+
+	
+
