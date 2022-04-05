@@ -1,36 +1,63 @@
-
-Python(Guido van Rossum 1985-1990 at National Research Institute of Mathematics and Computer Science in Netherlands): Interpreted, Interactive, object oriented, functional, structure(Procedureal), can be used as scripting language or can be compiled to byte code, Dynamic data type(we can change the data type by assigning diff variable at run time), Dynamic type checking, automatic garbage collection.
-
-Python is named after a TV Show called ëMonty Pythonís Flying Circusí.
-
-Python 3.0 was released in 2008.
-
-Python Enviroment Variable:Pythonpath, pythonstartup, pythoncaseok, pythonhome
-
-Python Command line options: -d(It provides debug output), -O(It generates optimized bytecode (resulting in .pyo files)), -S(Do not run import site to look for Python paths on startup), -v(verbose output (detailed trace on import statements)), -X(disable class-based built-in exceptions (just use strings); obsolete starting with version 1.6.), -c cmd(run Python script sent in as cmd string), file(run Python script from given file)
-
-Python is casesenstive language.
-
+Python(Guido van Rossum 1985-1990 at National Research Institute of Mathematics and Computer Science in Netherlands): 
+- Interpreted, Interactive, object oriented, functional, structure(Procedureal), can be used as scripting language or can be compiled to byte code, Dynamic data type(we can change the data type by assigning diff variable at run time), Dynamic type checking, automatic garbage collection.
+	- Interactive mode: CMD: python , quit()
+	- Script mode: Python File_Name.py [command_line_argument]
+- Python is named after a TV Show called ëMonty Pythonís Flying Circusí.
+- Python Enviroment Variable:Pythonpath, pythonstartup, pythoncaseok, pythonhome
+- Python Command line options: -d(It provides debug output), -O(It generates optimized bytecode (resulting in .pyo files)), -S(Do not run import site to look for Python paths on startup), -v(verbose output (detailed trace on import statements)), -c cmd(run Python script sent in as cmd string), file(run Python script from given file)
 
 
 Topics:
-1. Interactive mode: CMD: python , quit()
-2. Script mode: Python File_Name.py [command_line_argument]
+Namespace:	BuiltIn Namespace contain-> Module specific Global Namespace contain-> Function local Name Space
 
 
-3. Identifier(Python is a case sestive language): Start with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9) or A-Z or a-z.
+Notes:
+1. Python is casesenstive language.
+2. Semocolon(;) can be used for mutli-statement in a single line. Ex: a=2;b=3;
+3. print(dir(locals()['__builtins__']))#view all the built-in exceptions
+3. No enclosing delimiters is any set of comma-separated multiple objects. i.e., brackets for lists, parentheses for tuples etc(Default to tuples)
+4. In python prompt underscore(_) is used to refer the output of previous command and In the script can be used in place of variable that wouldn't be used.
+5. Indexig & Slicing
+	-Indexing in python start at 0 and will always be less than one to stop value and we can also use negative indexing to traverse reversly start from -1.
+	-Slice operator can be used with sequence(list, tuple, string) as object_name[start:stop:step_size](If slice operator is like [a:] and a is out of index then it will return a blank String, List, Tuple)
+5. Print("Hi 
+		There")  o/p->Output of multiline string will always be in multiple line, Same format whatever is there in multi-line string.
+
+5. Mutable	: we can add/update existing value of variable.
+6. Immutable	: Each time we will try to add/update the existing value it will create  new object and then it will assign that new object value to that varaible.
+1. Mutable object will be created in diff location everytime even if they have same value.
+2. Immutable objects will created in same location for small length(interpreter check if a object is already their in heap with same value then it will not create a same object otherwise it will create a new object, works only for small length object)
+7. Implicit conversion: Python promotes the conversion of the lower data type (integer) to the higher data type (float) to avoid data loss 
+   Ex: 1+2.3 o/p->3.3
+8. Explicit conversion(Type casting: int(var), float(var),str(var),set(sequence), list(sequence), tuple(sequence), dict(list of tuple or list of list))
+9. del var_name[ ,var_name....]	#can be use to delete the object reference.
+10. A module is loaded only once, regardless of the number of times it is imported. This prevents the module execution from happening repeatedly, if multiple imports occur. 
+11. __name__ is special name that is assigned at run time as '__main__ if this is the file from where file starts to run but if it is a imported file then __name__ is something else, So this variable can be used to run statement that should be runned when the file is not imported or imported.
+12. input("something:")#always read as string need to convert into specific type
+4.Python 3 evaluates 3 / 2 as 1.5 by default
+2. print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+	By-Default end='\n' flush ot every element but if the end perameter s something else then '\n' then either we have to manually write code to flush out the output from buffer(sys.stdout.flush()) or flush=True else it will get print only when buffer gets full.
+3. pypi is repo for open-source third-party python package and PIP is used to download the package from pypi 
+4. Unit testing -we can use different testing tool pylint,unittest
+
+11. import this#Zen of python
+12. Why doesn't 0.1+0.2-0.3 is equal to 0.0
+	https://docs.python.org/2/tutorial/floatingpoint.html
+
+
+1. Identifier(Python is a case sestive language): Start with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9) or A-Z or a-z.
 	1. Starting an identifier with a single leading underscore indicates that the identifier is private.
 	2. Starting an identifier with two leading underscores indicates a strongly private identifier.
 	3. If the identifier also ends with two trailing underscores, the identifier is a language-defined special name.
 	4. Identifier can be of any length
 
-
-4. Multi Line Statements: Statements in Python typically end with a new line. Python does, however, allow the use of the line continuation character (\) to denote that the line should continue
+2. Multi Line Statements: Statements in Python typically end with a new line. Python does, however, allow the use of the line continuation character (\) to denote that the line should continue
 	ex: total = item_one + \
         item_two + \
         item_three
 
-5. Statements contained within the [], {}, or () brackets do not need to use the line continuation character.
+	Note:
+	Statements contained within the [], {}, or () brackets do not need to use the line continuation character.
 
 6. Comments:	single line	: #
 		multiline 	: ''' ''' or """ """
@@ -42,8 +69,6 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 
 9. Keywords : import keyword ;	print(keyword.kwlist)  #list of keywrods present in python   ex: True, False, None - Except these 3 keyword rest are in lowercase
 
-
-
 10.BuiltIn Data type :
 
 	Text Type:	str
@@ -52,130 +77,90 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 	Mapping Type:	dict
 	Set Types:	set, frozenset
 	Boolean Type:	bool
-	Binary Types:	bytes, bytearray, memoryview
+	Binary Types:	byte(Immutable version of bytearray), bytearray, memoryview
 
 
-	Immutable: 	Number
-			(Int-(binary ex:'0b' or '0B' ex:'0B100', decimal  , octal ex:'0o' or '0O' , Hexadecimal: '0x' or '0X' )- any length, 
-			Float(12.5,e, E), 				
-			Complex(2+3j) ex: Number=12+5j print(Number.imag, Number.real)) o/p->5 12 				
-			Note:
-				By-default print function will represent Number(Int-(binary,decimal, octal, Hexadecimal) in deciml format only.
-				Integer can be of any length only, only limited by memory
-				floatting point number can be accurate up to 15 decimal places.
+	Immutable: 
+	1. 	Number
+		-Int-(binary ex:'0b' or '0B' ex:'0B100', decimal , octal ex:'0o' or '0O' , Hexadecimal: '0x' or '0X' )- Positive/Negaticve
+		-Float(12.5,e, E)- Positive/Negaticve
+		-Complex(2+3j) ex: Number=12+5j print(Number.imag, Number.real)) o/p->5 12 				
+		
+		Note:
+		-By-default print function will represent Number(Int-(binary,decimal, octal, Hexadecimal) in deciml format only.
+		-Integer can be of any length only, only limited by memory.
+		-Floatting point number can be accurate up to 15 decimal places.
 
-			String('', "", """"""(multiline string), ''''''(multiline string))	#a="" # Blank string , 
-			Raw_String(quotes prefix with r or R): it will depriciate the meaning of special character, if present there in that string. Ex: r'\nBrajesh' 
-			Unicode String(quotes prefix with u): Ex: u'\u00050'
-				Note:
-				Python 3 stores strings as Unicode, by default,  We have Unicode (utf-8) and 2 byte classes: byte(Immutable version of bytearray) and 				bytearray.
-				ex-
-				1. print('Python', python_version(), end="")
-				   print(' has', type(b' bytes for storing data'))
-
-					   o/p-Python 3.4.1 has <class 'bytes'>
-
-				2. print('and Python', python_version(), end="")
-				   print(' also has', type(bytearray(b'bytearrays')))
-
-					   o/p-and Python 3.4.1 also has <class 'bytearray'>
-				Print("Hi 
-					There
-					")  o/p->Output of multiline string will always be in multiple line
-
-			Tuple  - a=()#blank tuple, tup1 = (50,)#tuple with one element, Why not a=(50)? Use Type function.
-
-			Frozen_set(ordered collection of unique elements)->Ex: frozenset([1,2,3]) 
-				Note: 	Slicing operator can be used with forzenset
-					frozen_set and it's elements are immutable.
-			
-
-	Mutable:   	List a=[] #Empty list(If we will pass Empty list in the If condition then it will evaluate to False), What about other sequences?,
-				Note:
-				list.method()#give the list of method available for performing operation on list
-				Bradcasting not allowed in list#list[0:5]=100; gives error
-				a[0:3]=[2,5] is allowed b/e it's a multi assignment
-
-			Dictonary(Keys are Immutable but values are mutable): Ordered collection of key-value pairs	#a={}#blank dictonary, 
-
-				Note:
-				In dictonary if we have key present multiple times then the output will have key present single time with a value in the last 						occurance.
+	2.	String('', "", """"""(multiline string), ''''''(multiline string))	
+		Ex: a="" # Blank string , 
+		-Raw_String(quotes prefix with r or R): it will depriciate the meaning of special character, if present there in that string. 
+		Ex: r'\nBrajesh' 
+		-Unicode String(quotes prefix with u): Ex: u'\u00050'
+		Note:
+		Python 3 stores strings as Unicode.
+		Ex- print(type(b'bytes for storing data'), type(bytearray(b'bytearrays')))	o/p- <class 'bytes'> <class 'bytearray'>
 				
-				Ex:
-				webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit","Cyan" : "A color", "Cyan" : "A Win"}
-					o/p--->webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit", "Cyan" : "A Win"}
+	3. 	Tuple  - a=()#blank tuple, tup1 = (50,)#tuple with one element
 
-				ordereddict object keep order of dictonary 
-				Key can be primitive datatype but values can be any python object
+	4.	Frozen_set(ordered collection of unique elements)
+		Ex: frozenset([1,2,3]) 
 		
-			Set(unordered collection of unique element) 		#a=set() #blank set,
-				Note: 	Slicing operator can't be used with Set b/e it's unordered colletion of unique elements. 
-					Set is mutable but elements of sets are immutable, so a={1,'abc',[1,2]} will give error b/e mutable elements can't be within 					set.
 			
+
+	Mutable:   	
+	1.	List 
+		Ex:	a=[] #Empty list
+			Note:
+			Bradcasting not allowed in list, Ex: list[0:5]=100 gives error, but a[0:3]=[2,5] is allowed b/e it's a multi assignment
+
+	2. 	Dictonary(Keys are Immutable but values are mutable): Ordered collection of key-value pair
+		Ex:	a={}#blank dictonary, 
+		Note:
+			In dictonary if we have key present multiple times then the output will have key present single time with a value in the last 						occurance.
+			Ex:
+			webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit","Cyan" : "A color", "Cyan" : "A Win"}
+			o/p--->webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit", "Cyan" : "A Win"}
+
+	3.	ordereddict(keep order of dictonary)
+		-Key can be primitive datatype but values can be any python object
+		
+	4. 	Set(unordered collection of unique element) 		
+		Ex:	a=set() #blank set,
+			Note: 	
+			-Slicing operator can't be used with Set b/e it's unordered colletion of unique elements. 
+			-Set is mutable but elements of sets are immutable, so a={1,'abc',[1,2]} will give error b/e mutable element list can't be within set.					set.
 			
-					
-			
-			boolean(True(1)-Non-zero  , False(0)- None, Empty sequence), EX: x = (1 == True) o/p->True,y = (1 == False) o/p->False,a = True + 4 o/p->5,
+	5.	boolean(True(1)-Non-zero  , False(0)- None, Empty sequence), 
+		EX: 	x = (1 == True) o/p->True,	
+			y = (1 == False) o/p->False,
+			a = True + 4 o/p->5,
 			b = False + 10 o/p->10
-				Note:
-				 if you have an object that is made from a class with a __len__ function that returns 0 or False:
+			Note:
+			if(object of a class) #False if __len__ function defined by class returns 0 or False then
 			
-			None(object of NoneType- we can't create object of NoneType but same None object can be assigned to multiple variable) Special constant
-
-	Note:
-	1. Mutable	: we can add/update existing value of variable, it will not create a new object.
-	2. Immutable	: Each time we will try to add/update the existing value it will create  new object and then it will assign that new object value to that 			  	varaible.
-	3. Implicit conversion or Explicit conversion(Type casting: int(var), float(var),str(var),set(sequence), list(sequence), tuple(sequence), dict(list of tuple 	or list of list))
-	4. Python promotes the conversion of the lower data type (integer) to the higher data type (float) to avoid data loss Ex: 1+2.3 o/p->3.3
-	5. del var_name[ ,var_name....]#can be use to delete the object reference(In python everything is an object).
-	6. Semocolon(;) allow mutli-statement in a single line.
-	7. No enclosing Delimiters is any set of multiple objects, comma-separated, written without identifying symbols, i.e., brackets for lists, parentheses for 	tuples etc., default to tuples.
-	9. A module is loaded only once, regardless of the number of times it is imported. This prevents the module execution from happening repeatedly, if multiple 	imports occur. 
-	10. In python prompt underscore(_) is used to refer the output of previous command and In the script can be used in place of variable that couldn't be used.
-	11. import this#Zen of python
-	12. Why doesn't 0.1+0.2-0.3 is equal to 0.0
-    		https://docs.python.org/2/tutorial/floatingpoint.html
-	13. print formatting
-	https://pyformat.info/
-	14. + operator with sequence(list, tuple, string) type work as a concatnation operator and * as a repetation operator
- 
-
-11. Indexig & Slicing:
-	1. Indexing in python start at 0 and will always be less than one to stop value and we can also use negative indexing to traverse reversly start from -1.
-	1. Slice operator can be used with sequence(list, tuple, string) as object_name[start:stop:step_size](If slice operator is like [a:] and a is out of index then 		it will return a blank String, List, Tuple)
-	
-	
-
-	
-	
-	
-
-	
-	
-12.Function : 	def , parameter(positional, keyword, default, vararg(can be of two type-> tuple of object(*args) or mapping of object-dictonary(**args))),  Optional return statement
-		Function can be created within function(Nested function)
-		
-		Note:
-		Default argument can't be followed by positional argument in declaration statement.
-		Keyword argument can't be followed by positional argument in calling statement.
-		vararg should always be in last in a function declaration statement having positional, keyword, default, vararg argument .
-		*args and **kwargs(name of variable could be anything)
-			*args is tuple of values(we can paas multiple value from calling function)
-			**kwargs is multiple key value pair passed from calling and result into a disctonary of name kwargs within function  
-			we can also use both at the same time first args  then kwargs
-
-		Ex:	def fun_name(parameter):
-				''''multi line doc string'''
-				#multiple statement 
-				return [object_name]
-
-		Note:
-		1. If we will not return any object from function bydefault it will return None object.
-		2. Everything in python is call by reference
+	None(object of NoneType- we can't create object of NoneType but same None object can be assigned to multiple variable) Special constant
 
 
-		
 BuiltIn Fuction
+range(start, stop, step_size)#return a sequence of oject Ex: range(10): 0 to 9 , range(0,10): 0 to 9
+len(object): number of elements present in sequence
+Filter function: Call function for every element present in the seqence and return values from sequence condition evaluate to True(function should return True or False)
+# Program to filter out only the even items from a list
+my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+new_list = list(filter(lambda x: (x%2 == 0) , my_list))
+print(new_list)
+
+Map Function: Call function for every element present in the seqence
+# Program to double each item in a list using map()
+my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+new_list = list(map(lambda x: x * 2 , my_list))
+print(new_list)
+reduce(object, fnction)
+enumerate(object, index)
+max(object)
+min(object)
+zip()#combine the every nth position value of passed object and result into list of tuple, If there is umcommon number of items in those passed object , it will zip till every passed object have items ,rest it will leave
+
 abs(number)#return absolute value of a number , 
 all(iterable_object)#reutrn true if all the elements in iterable are true or if iterable is empty it returns True, 
 any(iterable_object)#reutrn true if any of the elements in interable object is True or if iterable is empty it returns False
@@ -188,28 +173,33 @@ type(Object) #return the class name of object
 isinstance(objectName, ClassName)#return True if the object is of type class otherwise False 
 globals() #return the list of global variable that can be accessed from current namespace.
 locals() #return the list of local variable that can be accessed from current namespace.
-dir(module_name)#returns a sorted list of strings containing the names defined by a module. 
-dir()#can be use to check the names available to current namespace
+dir(module_name): give all the names defined in that module
+dir(): give all the names can be accessible fromcurrent namespace
 sorted()
-iter(object)#convert object into iterable object
-range(start, stop, step_size)#return a sequence of oject Ex: range(10): 0 to 9 , range(0,10): 0 to 9
-len(object): number of elements present in sequence
-map( function,oject)
-filter(function),object
-reduce(object, fnction)
-enumerate(object, index)
-max(object)
-min(object)
 id(object)#return address of object in memory
-zip(*object)
+	
 
+11. Function : 	def , parameter(positional, keyword, default, vararg(can be of two type-> tuple of object(*args) or mapping of object-dictonary(**args))),  Optional return statement
+	Note:
+	- Default argument can't be followed by positional argument in declaration statement.
+	- Keyword argument can't be followed by positional argument in calling statement.
+	- vararg should always be in last in a function declaration statement having positional, keyword, default, vararg argument .
+	- *args and **kwargs(name of variable could be anything)
+			*args is tuple of values(we can paas multiple value from calling function)
+			**kwargs is multiple key value pair passed from calling and result into a disctonary of name kwargs within function  
+	- Function can be created within function(Nested function)
+	- If we will not return any object from function bydefault it will return None object.
+	- Everything in python is call by reference
+	- global: To refer the variable that is defined outside the function.
+	- nonlocal: To refer the variable that is defined in outer function.
+	Note:
+	global or nonlocal can be useable when either we want to update the value of global/nonlocal variable or if we want to read a global/nonlocal variable value and we have same variable name present inside function/nested function.
 
-
-		global: global keyword (global var_name) is used to show interpreter that this variable is present outside the function.
-		nonlocal: same as glocal used for nested function.
-		note:
-			global or nonlocal can be useable when either we want to update the value of variable(For reading a global variable value we don't need to define refer global keyword inside function only if we don;t have same name varaible present inside function.
-
+	Ex:	def fun_name(parameter):
+			''''multi line doc string'''
+			#multiple statement 
+			return [object_name]
+				
 
 3.Anonymous function:	x=lambda arguments: expression
 			x(2)#calling a lambda function
@@ -217,7 +207,6 @@ zip(*object)
 			#have access to variable with in passed perameter or global namespace
 			#It returns a function object which is assigned to the identifier
 			
-
 4.Operator:	Airthmetic(+,-,*,/,//(Floor division),**(Power)), 
 		comparison(==,!=,<>,>,>=,<,<=), 
 		Assignment(=,+=,-=,*=,/=,//=,**=),
@@ -225,15 +214,7 @@ zip(*object)
 		Bitwise(&-and, |-or, ^-XOR, ~-one's complement ,<<-left shift ,>>-right shift), 
 		Membership(in , not in),  
 		indentity(is( True if located on the same part of the memory) , is not)
-			Note:
-			Diff between is and ==:
-				the == operator is used to test if two variables are equal or not, is is used to test if the two variables refer to the same object.
-				1. Mutable object will be created in diff location everytime even if they have same value
-				2. Immutable objects will created in same location for small length(interpreter check if a object is already their in heap with same 					value then it will not create a same object otherwise it will create a new object, works only for small length object)
-
-
- 
-
+		
 5.Flow control:		If, if else, if elif, if elif else, for , for else, while, while else, break, continue, pass(To define empty class, function, control statement+)
 			Note:
 			1. for else loop: else block will be executed if no break occur at for loop and for loop complted.
@@ -243,12 +224,9 @@ zip(*object)
 			5. For: When number of interation is known in advance, While: No. of iteration is not known in advance, do-while: For menu driven program
 
 
-
-
 6.Module and package: 	Module is .py file 
 				note:
-				dir(module_name): give all the names defined in that module
-				dir(): give all the names can be accessible fromcurrent namespace
+				
 			Package(Colection of module) have __init__.py file 
 			Sub Package have __init__.py file
 
@@ -258,24 +236,15 @@ zip(*object)
 			from module_name import *		#import all the names from a module in current namespace
 			from module_name import name1,name2	#import multiple name in module in current namespace
 			
-			29. if__name__=='__main__'":use only for finding and running some statements if the file run directly 
-			The file which we are runing have a varable __name__ that is assigned at run time as '__main__'(because this is the file from where file start to run) but if it is a imported file then __name__ is something else
-	if it is imported then the file in which it is imported have variable __name__ as '__main__'
-	when we import the file it will run first all the statement at zero indentation 
-
-			
-
-			Interpreter first looks for a built-in module. Then(if built-in module not found), Python looks into a list of directories defined in sys.path. 			
-8. Locating Modules
-	When you import a module, the Python interpreter searches for the module in the following sequences −
-	The module search path is stored in the system module sys as the sys.path variable. 
-	The sys.path variable contains the current directory, PYTHONPATH(An environment variable with list of directory), and the installation-dependent default(we can also add our custom path in sys.pth list).
-
+	Note
+	-Interpreter first looks for a built-in module then list of directories defined in sys.path. 			
+	-The sys.path variable contains the current directory, PYTHONPATH(An environment variable with list of directory), and the installation-dependent default(we can also add our custom path in sys.pth list).
 
 
 2. List Comprehension:	concise way to create a new list from an existing list in Python.
 			Ex: 	[2 ** x for x in range(10)]	
-				[x for x in range(20) if x % 2 == 1]	
+				[x for x in range(20) if x % 2 == 1]
+				[x for x in range(20) if x % 2 == 1 if x % 4 == 1]
 				[x+y for x in ['Python ','C '] for y in ['Language','Programming']]
 				[x if x!=0 else 1 for x in ['Python ','C ']]
 
@@ -283,7 +252,7 @@ zip(*object)
 				new_dict = {k: v for (k, v) in original_dict.items() if v % 2 != 0 if v < 40}
 
 
-13. Exception Handling: try-except, try-except Exception, try-except Exception as e, try-except (comma seprated multiple class of exception), try-multiple_except, try-except-else, try-except-else-finally,sys.exc_info()[0](Can be used to get the class of exception)
+13. Exception Handling:	try-except, try-except Exception, try-except Exception as e, try-except (comma seprated multiple class of exception), try-multiple_except, try-except-else, try-except-else-finally.
 
 Try-contain code, Except-if there is error in try block , else-if there is no error in try block, finally-always run
 
@@ -291,8 +260,6 @@ Try-contain code, Except-if there is error in try block , else-if there is no er
 14. Raise an exception, User define exception
 	Syntex: raise object_of_exception_class('message')#exception class can be inbuilt or user defined exception class
 	Ex: raise ZeroDivisionError('cannot divide')
-
-30. print(dir(locals()['__builtins__']))#view all the built-in exceptions
 
 
 7. OOP: Class
@@ -406,41 +373,10 @@ for i in g:
 
 
 
-Diff b/w Python2 and Python3:
-1.
-3.input("something:")#always read as string need to convert into specific type
-4.Python 3 evaluates 3 / 2 as 1.5 by default
-5.Python 3 stores strings as Unicode, by default. We have Unicode (utf-8) strings, and 2 byte classes: byte and byte arrays.
-6.range(): generate a object that will return a number only when ask
-7.Python 3 raises a SyntaxError if we do not enclose the exception argument in parenthesis.raise IOError("file error") #this is the recommended syntax in Python 3
-8.In Python 3, arguments to exception should be declared with 'as' keyword.except Myerror as err: #In Python 3
-9.
-gen = (letter for letter in 'Hello World') # creates generator object
-next(my_generator) #allowed in Python 2 and Python 3
-my_generator.next() #allowed in Python 2. raises AttributeError in Python 3
-
-10. Assertion can be used to Test_the_code, raise assertion_exception if condition is not true(ex : to check the argument passed to function)
-	could be handled in same way as other exception , if not handled will terminate the program and produce a tracebreak
-	assert expression, arg_to_exception
-11. type(a)->used to check the type of variable a, isinstance(a,b)->True id variable is instance of class b , id(a)-> give memory address of object a 
-12. Namespace:	BuiltIn Namespace contain-> Module specific Global Namespace contain-> Function local Name Space
 
 
-Filter function: Call function for every element present in the seqence and return values from sequence condition evaluate to True(function should return True or False)
-# Program to filter out only the even items from a list
-my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-new_list = list(filter(lambda x: (x%2 == 0) , my_list))
-print(new_list)
-
-Map Function: Call function for every element present in the seqence
-# Program to double each item in a list using map()
-my_list = [1, 5, 4, 6, 8, 11, 3, 12]
-new_list = list(map(lambda x: x * 2 , my_list))
-print(new_list)
 
 
-zip()#combine the every nth position value of passed object and result into list of tuple
-	#if there is umcommon number of items in those passed object , it will zip till every passed object have items ,rest it will leave
 
 list(enumrate(iterable object))#it will give list of tuple with element mappped to index location.
 
@@ -461,32 +397,12 @@ Timeit library is used to measure the execution time of a python code snippet
 pip install -r requirements.txt# we can use this command to install a number of libraries mentioned in the text file.
 	requirement file contaion:
   
-	scipy==0.19.1
-	xxhash==1.0.1
 
-20.Basic Practice:
-	http://codingbat.com/python
-
-More Mathematical (and Harder) Practice:
-	https://projecteuler.net/archives
-
-List of Practice Problems:
-	http://www.codeabbey.com/index/task_list
-
-A SubReddit Devoted to Daily Practice Problems:
-	https://www.reddit.com/r/dailyprogrammer                        
-
-A very tricky website with very few hints and touch problems (Not for beginners but still interesting)
-	http://www.pythonchallenge.com/
-
-Note:
-1. In multi-line string, line breaks are inserted at the same position as in the code.
-2. print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
-	By-Default end='\n' flush ot every element but if the end perameter s something else then '\n' then either we have to manually write code to flush out the output from buffer(sys.stdout.flush()) or flush=True else it will get print only when buffer gets full.
-3. pypi is repo for open-source third-party python package and PIP is used to download the package from pypi 
-4. Unit testing -we can use different testing tool pylint,unittest
 
 Question:
 1. Can we use slicing with dictonary.
 2. PEP stands for Python Enhancement Proposal. It is a set of rules that specify how to format Python code for maximum readability.
+3. Is forzen_set mutable and it's element immutable?
+4. Difference b/w is and == operator?
+5. Try to create two list with same elements and check the id and ==?
 
