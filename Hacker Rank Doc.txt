@@ -1,0 +1,40 @@
+A and B is a set and C is any iterable item(list , set,tuple, dictonary, enum) 
+
+1. A.union(B or C)
+   | operator can be used in place of intersection operator but both operand must be set ex- A & B
+   above two result into new set , we can use A.update(B or C) or |= method so that it will update the A set 
+	
+
+2. A.intersection(B or C)
+   & operator can be used in place of intersection operator but both operand must be set ex- A & B
+   above two result into new set , we can use A.intersection_update(B or C) or &= method so that it will update the A set 
+
+
+3. A.difference(B or C)
+   - operator can be used in place of intersection operator but both operand must be set ex- A & B
+   above two result into new set , we can use A.difference_update(B or C) or -= method so that it will update the A set 
+
+
+4. A.symmetric_difference(B or C)#either in A or B/C or not in both
+   ^ operator can be used in place of intersection operator but both operand must be set ex- A & B
+   above two result into new set , we can use A.symmetric_difference_update(B or C) or ^= method so that it will update the A set 
+
+
+5. int(input().strip())#To remove spaces from both side of the string 
+
+6. leap year ------ year % 4 == 0 and (year % 400 == 0 or year % 100 != 0)
+
+7. Use _ in place of variable name if we don't need variable further. 
+
+8. any()-This expression returns True if any element of the iterable is true or If the iterable is empty, it will return False.
+   all()- This expression returns True if all of the elements of the iterable are true. If the iterable is empty, it will return True.
+
+9. For sorting a nested list based on some parameter, you can use the itemgetter library-https://stackoverflow.com/questions/409370/sorting-and-grouping-nested-lists-in-python?answertab=votes#tab-top
+
+10. Print have end and sep(if we are passing mutile object comma seprated, by deafult is space) parameter.
+
+11. The eval() expression is a very powerful built-in function of Python. It helps in evaluating an expression. The expression can be a Python statement, or a code object.
+
+12. For every input of list of number we need to convert those into number - map(int, input().split())
+
+

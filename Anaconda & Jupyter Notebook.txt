@@ -1,0 +1,61 @@
+Jupyter notebook(.ipynb): www.jupyter.org(Open source interactive datascience & scientific computhing platform)
+
+1. Secure notebook using following command and share the key with only to whom you want: ~/.jupyter/profile-default/security/notebook-secret
+2. code mirror can be used to confirgure the parameter for jupyter notebook(Check and learn).
+
+Notes:
+1. cmd: activate root(it will connect cmd to conda propt).
+1. Start the jupyter notebook(Go to path where you want to start the notebook): 	Command:jupyter notebook
+2. There are two types of mode a code cell can be in(Edit mode(Green)-> we can edit and type the python code or Command mode(Blue)-> we can use button by which it will process command linked to that button Ex: A-> To append a cell below).
+& From edit mode when we click on ESC button it will change the mode to command mode & Use ENTERE key for vice-versa
+
+3. PIP is python package manager and Conda is 
+4. Tab can be use to get list of avaialabl method & attribute.
+4. Shift + Tab use to get the details about the method & atribute.
+5. Run the code shell
+	CTRL+ENTER->Only run the cell 
+	SHIFT+ENTER->Run the cell and move to next shell
+	ALT+ENTER->Run the cell and enter a blank cell next to it.
+6. we can see the order of execution of cells prior to it in square bracket.(Some times we can see astrik(*) in square bracket that means that cell is still executing)
+7. to write a file from jupyter itself use %%writefile myfile.txt and below this command type text that file would contain 
+
+Jupyter Magical command:
+Types:
+	1. Line magic command: It applies the command to one line of the Jupyter cell as its name suggests.
+		
+	2. Cell magic command: It applies the command to the whole cell of the notebook and needs to be kept at the beginning of the cell.
+Commad:
+	1. %lsmagic#This will list the all available magical command with notebook.
+1. To print the graph within the jupyter notebook we should write "%matplotlib inline" before pritning any graph.
+
+3. To execute the cmd command in jupyter type the command followed by exclamation mark(!)  ex: ! conda install pydot
+
+
+
+
+
+Anaconda virtual environments: we can have multiple configurations of python installed in our system using virtual environment
+1. virtualenv library: For creating virtual environment in normal python distribution.
+
+Commands:
+1. conda create --name name_of_enviroment [python=version] [library_name]#If we don't specify the pthon version it will start with base version of python
+2. activate name_of_enviroment #Change the base environment to given name environment
+3. deactivate#deactivte the environment
+4. conda env create -f hello-spark.yml	
+	and hello-spark.yml contain the dependencies we want to download
+name: hello-spark 
+    dependencies:
+    
+    - python=3.6
+    - jupyter
+    - ipython
+    - numpy
+    - numpy-base
+    - pandas
+    - py4j
+    - pyspark
+    - pytz
+
+
+
+
