@@ -36,9 +36,12 @@ Notes:
 12. input("something:")#always read as string need to convert into specific type
 4.Python 3 evaluates 3 / 2 as 1.5 by default
 2. print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
-	By-Default end='\n' flush ot every element but if the end perameter s something else then '\n' then either we have to manually write code to flush out the output from buffer(sys.stdout.flush()) or flush=True else it will get print only when buffer gets full.
+	Note
+	file - It must be an object with a write(string) method.
+	By-Default end='\n' flush out every element but if the end perameter is something else then '\n' then either we have to manually write code to flush out the output from buffer(sys.stdout.flush()) or flush=True else it will get print only when buffer gets full.
 3. pypi is repo for open-source third-party python package and PIP is used to download the package from pypi 
 4. Unit testing -we can use different testing tool pylint,unittest
+5. pip install -r requirements.txt# we can use this command to install a number of libraries mentioned in the text file.
 
 11. import this#Zen of python
 12. Why doesn't 0.1+0.2-0.3 is equal to 0.0
@@ -101,6 +104,8 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 		Ex- print(type(b'bytes for storing data'), type(bytearray(b'bytearrays')))	o/p- <class 'bytes'> <class 'bytearray'>
 				
 	3. 	Tuple  - a=()#blank tuple, tup1 = (50,)#tuple with one element
+		Note:
+		Tuple is immutable but elements can be of type mutable Ex: a=(1,'s',[1,2,3])
 
 	4.	Frozen_set(ordered collection of unique elements)
 		Ex: frozenset([1,2,3]) 
@@ -128,8 +133,7 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 		Ex:	a=set() #blank set,
 			Note: 	
 			-Slicing operator can't be used with Set b/e it's unordered colletion of unique elements. 
-			-Set is mutable but elements of sets are immutable, so a={1,'abc',[1,2]} will give error b/e mutable element list can't be within set.					set.
-			
+			-Set is mutable we can add but elements of sets are immutable, so a={1,'abc',[1,2]} will give error b/e mutable element list can't be within set.	
 	5.	boolean(True(1)-Non-zero  , False(0)- None, Empty sequence), 
 		EX: 	x = (1 == True) o/p->True,	
 			y = (1 == False) o/p->False,
@@ -252,7 +256,7 @@ id(object)#return address of object in memory
 				new_dict = {k: v for (k, v) in original_dict.items() if v % 2 != 0 if v < 40}
 
 
-13. Exception Handling:	try-except, try-except Exception, try-except Exception as e, try-except (comma seprated multiple class of exception), try-multiple_except, try-except-else, try-except-else-finally.
+13. Exception Handling:	try-except,	try-except Exception as e, try-except (comma seprated multiple class of exception), try-multiple_except, try-except-else, try-except-else-finally.
 
 Try-contain code, Except-if there is error in try block , else-if there is no error in try block, finally-always run
 
@@ -386,16 +390,15 @@ decimal		: Bydefault in python 1.1+2.2==3.3 will evalutae to False b/e of limita
 fractions	: Deal with fractional representtion of number
 random
 sphinx		: Library used to generate the documentation of a code.
-
-Library:
 nbconverter	:Library use to convert the ipynb(Jupyter notebook) into python file.
 Timeit library is used to measure the execution time of a python code snippet
  	import timeit
 	%timeit test_range(n)?-after importing the timeit module call in same syntex it will give the time taken by module  
 
+Libraries based on uses:
+Machine Learning - TensorFlow, PyTorch, Scikit-learn, Matplotlib, Scipy, etc.
+Mathematics - Numpy, Pandas, etc.
 
-pip install -r requirements.txt# we can use this command to install a number of libraries mentioned in the text file.
-	requirement file contaion:
   
 
 
