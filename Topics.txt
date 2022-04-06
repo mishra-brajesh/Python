@@ -39,13 +39,17 @@ Notes:
 	Note
 	file - It must be an object with a write(string) method.
 	By-Default end='\n' flush out every element but if the end perameter is something else then '\n' then either we have to manually write code to flush out the output from buffer(sys.stdout.flush()) or flush=True else it will get print only when buffer gets full.
-3. pypi is repo for open-source third-party python package and PIP is used to download the package from pypi 
+3. pypi is repo for open-source third-party python package and PIP(Python package manager is used to get all the files related to library) is used to download the package from pypi 
 4. Unit testing -we can use different testing tool pylint,unittest
 5. pip install -r requirements.txt# we can use this command to install a number of libraries mentioned in the text file.
+	
 
 11. import this#Zen of python
 12. Why doesn't 0.1+0.2-0.3 is equal to 0.0
 	https://docs.python.org/2/tutorial/floatingpoint.html
+13. Ex:
+	fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+	(green, yellow, *red) = fruits #Here red will be list of elements
 
 
 1. Identifier(Python is a case sestive language): Start with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9) or A-Z or a-z.
@@ -87,7 +91,9 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 	1. 	Number
 		-Int-(binary ex:'0b' or '0B' ex:'0B100', decimal , octal ex:'0o' or '0O' , Hexadecimal: '0x' or '0X' )- Positive/Negaticve
 		-Float(12.5,e, E)- Positive/Negaticve
-		-Complex(2+3j) ex: Number=12+5j print(Number.imag, Number.real)) o/p->5 12 				
+		-Complex(2+3j) ex: Number=12+5j print(Number.imag, Number.real)) o/p->5 12 
+			Note:
+			You cannot convert complex numbers into another number type.
 		
 		Note:
 		-By-default print function will represent Number(Int-(binary,decimal, octal, Hexadecimal) in deciml format only.
@@ -100,28 +106,43 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 		Ex: r'\nBrajesh' 
 		-Unicode String(quotes prefix with u): Ex: u'\u00050'
 		Note:
-		Python 3 stores strings as Unicode.
-		Ex- print(type(b'bytes for storing data'), type(bytearray(b'bytearrays')))	o/p- <class 'bytes'> <class 'bytearray'>
+		-Strings in Python are arrays of bytes representing unicode characters.
+		-All string methods returns new values. They do not change the original string.
+		-Ex- print(type(b'bytes for storing data'), type(bytearray(b'bytearrays')))	o/p- <class 'bytes'> <class 'bytearray'>
+		x = memoryview(bytes(5)).  o/p -> <class 'memoryview'>
 				
-	3. 	Tuple  - a=()#blank tuple, tup1 = (50,)#tuple with one element
+	3. 	Tuple(Ordered, Duplicate, Can't Add, Remove, Update. Can have mutable and immutable elements ) 
+		Ex:	a=()#blank tuple, tup1 = (50,)#tuple with one element
 		Note:
 		Tuple is immutable but elements can be of type mutable Ex: a=(1,'s',[1,2,3])
 
 	4.	Frozen_set(ordered collection of unique elements)
 		Ex: frozenset([1,2,3]) 
+	
+	5.	boolean(True(1)-Non-zero,have any sort of content  , False(0)- None, Empty sequence(''(Blank string),list, tuple, dict, set etc), 
+		EX: 	x = (1 == True) o/p->True,	
+			y = (1 == False) o/p->False,
+			a = True + 4 o/p->5,
+			b = False + 10 o/p->10
+			Note:
+			if(object of a class) #False if __len__ function defined by class returns 0 or False then
 		
 			
 
 	Mutable:   	
-	1.	List 
+	1.	List(Ordered,Add,Remove,Update,Allow duplicate,Can have mutable and immutable elements Ex:list,tuple,string, number etc) 
 		Ex:	a=[] #Empty list
-			Note:
-			Bradcasting not allowed in list, Ex: list[0:5]=100 gives error, but a[0:3]=[2,5] is allowed b/e it's a multi assignment
+		Note:
+		-Bradcasting not allowed in list, Ex: list[0:5]=100 gives error, but a[0:3]=[2,5] is allowed b/e it's a multi assignment
+		-If you insert more items than you replace, the new items will be inserted where you specified, and the remaining items will move 			 accordingly:
+			Ex:	a=[1,2,3]; a[0:1]=[2,5]; print(a) o/p->[2,5,2,3]
+		- If you insert less items than you replace, the new items will be inserted where you specified, and the remaining items will move 			  accordingly:
 
 	2. 	Dictonary(Keys are Immutable but values are mutable): Ordered collection of key-value pair
 		Ex:	a={}#blank dictonary, 
 		Note:
-			In dictonary if we have key present multiple times then the output will have key present single time with a value in the last 						occurance.
+		- dict is ordered collection of elements
+		-In dictonary if we have key present multiple times then the output will have key present single time with a value in the last 						occurance.
 			Ex:
 			webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit","Cyan" : "A color", "Cyan" : "A Win"}
 			o/p--->webster = {"Aardvark" : "An animal","Banana" : "A delicious fruit", "Cyan" : "A Win"}
@@ -129,18 +150,13 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 	3.	ordereddict(keep order of dictonary)
 		-Key can be primitive datatype but values can be any python object
 		
-	4. 	Set(unordered collection of unique element) 		
+	4. 	Set(unordered,unindexed, No duplicate, Add,Remove, Can't update, Can have only immutable elements) 		
 		Ex:	a=set() #blank set,
-			Note: 	
+			Note:
+			- we can use for loop to iterate over elements but the order is not promised here.
 			-Slicing operator can't be used with Set b/e it's unordered colletion of unique elements. 
 			-Set is mutable we can add but elements of sets are immutable, so a={1,'abc',[1,2]} will give error b/e mutable element list can't be within set.	
-	5.	boolean(True(1)-Non-zero  , False(0)- None, Empty sequence), 
-		EX: 	x = (1 == True) o/p->True,	
-			y = (1 == False) o/p->False,
-			a = True + 4 o/p->5,
-			b = False + 10 o/p->10
-			Note:
-			if(object of a class) #False if __len__ function defined by class returns 0 or False then
+	
 			
 	None(object of NoneType- we can't create object of NoneType but same None object can be assigned to multiple variable) Special constant
 
@@ -203,13 +219,29 @@ id(object)#return address of object in memory
 			''''multi line doc string'''
 			#multiple statement 
 			return [object_name]
+			
+		---------
+		
+		def myfunc():
+  			x = 300
+  			def myinnerfunc():#Nested Function
+    				print(x)
+  			myinnerfunc()
+
+		myfunc()
 				
 
 3.Anonymous function:	x=lambda arguments: expression
 			x(2)#calling a lambda function
 			#Take variable number of argument and return a single value as expression 
-			#have access to variable with in passed perameter or global namespace
+			#have access to variable with in passed perameter or variable can be accessible from current namespace
 			#It returns a function object which is assigned to the identifier
+			Ex:
+			def myfunc(n):
+  					return lambda a : a * n
+
+				mydoubler = myfunc(2)
+				print(mydoubler(11)) 			o/p ->22
 			
 4.Operator:	Airthmetic(+,-,*,/,//(Floor division),**(Power)), 
 		comparison(==,!=,<>,>,>=,<,<=), 
@@ -220,11 +252,15 @@ id(object)#return address of object in memory
 		indentity(is( True if located on the same part of the memory) , is not)
 		
 5.Flow control:		If, if else, if elif, if elif else, for , for else, while, while else, break, continue, pass(To define empty class, function, control statement+)
+			Ex: 
+			print("A") if a > b else print("B")	#Short-hand if else
+			if a > b: print("a is greater than b")	#Short-hand if
+			print("A") if a > b else print("+") if a == b else print("B") o/p-> +.  #Ternary operator
+			
 			Note:
 			1. for else loop: else block will be executed if no break occur at for loop and for loop complted.
 			2. while else : else block will be executed when no break occur and condition evaulate to false.
-			3. For loop takes a iterator object.
-			4. for loop convert the paas object into iterable object 
+			3. The for loop actually creates an iterator object and executes the next() method for each loop
 			5. For: When number of interation is known in advance, While: No. of iteration is not known in advance, do-while: For menu driven program
 
 
@@ -251,6 +287,7 @@ id(object)#return address of object in memory
 				[x for x in range(20) if x % 2 == 1 if x % 4 == 1]
 				[x+y for x in ['Python ','C '] for y in ['Language','Programming']]
 				[x if x!=0 else 1 for x in ['Python ','C ']]
+				
 
 3. Dictionary Comprehension: 	squares = {x: x*x for x in range(6)}
 				new_dict = {k: v for (k, v) in original_dict.items() if v % 2 != 0 if v < 40}
@@ -266,40 +303,132 @@ Try-contain code, Except-if there is error in try block , else-if there is no er
 	Ex: raise ZeroDivisionError('cannot divide')
 
 
-7. OOP: Class
-		Ex: class MyNewClass:
-			    '''This is a docstring. I have created a new class'''#Doc string
-			    pass
+7. OOP: 
+	1. Class
+			class Person:
+			'''This is a docstring. I have created a new class'''#Doc string
+  				def __init__(self, name, age):	#Class methods should have self as first perameter defined in method defination.
+    					self.name = name
+    					self.age = age
+					
+				  def myfunc(self):
+	    				print("Hello my name is " + self.name)
 
-		Points:
+			p1 = Person("John", 36)	#Create a object of class Person with it's name as "John" and age as 36.
+			p1.myfunc() o/p -> Hello my name is John	#p1 is object od class Person and myfunc is method of class Person 
+			print(p1.name)	o/p -> John
+			print(p1.age) 	o/p -> 36
+			
+			Notes:
 			1. A class creates a new local namespace where all its attributes are defined. Attributes may be data or functions.
-			26. all the methods that start from double underscore are magic/Dunder methods , have used for special purpose 
-				ex. __str__ used for string rep that we want to print when object of user defined class is passed to it 
-				or __len__ when your user defined object is passed to len() function or __del__ when object is passed to del object statement 
-			34.Doc String can be use with module, function , method, class(can be accessible using fun_name.__doc__))
+			2. all the methods that start from double underscore are magic/Dunder methods , have used for special purpose 
+				Ex:
+				__str__ used for string rep that we want to print when object of user defined class is passed to it 
+				__len__ when your user defined object is passed to len() function or 
+				__del__ when object is passed to del object statement 
+				__doc__ To access the documentation of function , class
+				__init__() is used to assign values to object properties, or other operations that are necessary to do when the object is 						being created.
+					Note:
+					The __init__() function is called automatically every time the class is being used to create a new object.
+			3. The self parameter is a reference to the current instance of the class, and is used to access variables that belong to the 					current instance of class. It does not have to be named self , you can call it whatever you like, but it has to be the 					first parameter of any function in the class:	
+			
+	2. Inheritance(Inheritance allows us to define a class that inherits all the methods and properties from another class)
+		#Parent class is the class being inherited from, also called base class.
+		class Person:
+  			def __init__(self, fname, lname):
+    				self.firstname = fname
+    				self.lastname = lname
+
+			def printname(self):
+				print(self.firstname, self.lastname)
 
 
-
-
-
-	Inheritance 
-
-	25. python support multiple inheritance and resolve from left to right 
-	Inheritance-we can override the method but can not overload method in python 
-	Polymorphism- we can use it in abstract class(abstract class have method which have to implement by subclass) just raise an error in base class method
-
-	
-	Overloading
-
-8.  Iterator: 	Iterator in Python is simply an object that can be iterated upon. An object which will return data, one element at a time.
-		Implemented in-for loop, comprehension, genrator
-		Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
-		An object is called iterable if we can get an iterator from it.
-Ex: 
-list = [1,2,3,4]
-it = iter(list) # this builds an iterator object
-print (next(it)) #prints next available element in iterator
+		x = Person("John", "Doe")
+		x.printname()	o/p -> John Doe
 		
+		#Child class is the class that inherits from another class, also called derived class.
+		class Student(Person):#Here we can pass the parent class name in parenthesis after the derived class name
+  			pass
+			
+			Note:
+			Here Student class inherit the __init__(), printable function.
+			
+			
+		x = Student("Mike", "Olsen")
+		x.printname()	o/p -> Mike Olsen
+		-----------
+		class Student(Person):# Here if we add the __init__() function within derived class then while creating object of Student system will not 					call the __init__() function of poarent class
+  			def __init__(self, fname, lname):
+    			#add properties etc.
+			
+		-----------
+		class Student(Person):
+  			def __init__(self, fname, lname):
+    				Person.__init__(self, fname, lname) or super().__init__(fname, lname)
+				
+			Note:
+			- If you add a method in the child class with the same name as a function in the parent class, the inheritance of the parent method will be overridden.
+			- python support multiple inheritance and resolve from left to right.
+			- Overloading not allowed in python.
+	
+		
+		
+	
+	3. Polymorphism- we can use it in abstract class(abstract class have method which have to implement by subclass) just raise an error in base class method
+
+
+8.  Iterator: 	
+	
+		Note:
+		-Iterator in Python is simply an object that is traversable and will return one element at a time.
+		-Python iterator object must implement two special methods, __iter__() and __next__(), collectively called the iterator protocol.
+		-Lists, tuples, dictionaries, and sets are all iterable objects.
+		
+		Ex: 
+		list = [1,2,3,4]
+		it = iter(list) # this builds an iterator object
+		print (next(it)) o/p ->1 
+		print (next(it)) o/p ->2 
+		print (next(it)) o/p ->3 
+		print (next(it)) o/p ->4 
+		----
+		class MyNumbers:# Here is how we can define our own iterator 
+  			def __iter__(self):
+   				self.a = 1
+    				return self
+
+  			def __next__(self):
+    				x = self.a
+    				self.a += 1
+    				return x
+
+		myclass = MyNumbers()
+		myiter = iter(myclass)
+
+		print(next(myiter))
+		print(next(myiter))
+		print(next(myiter))
+		print(next(myiter))
+		print(next(myiter))
+		-------
+		class MyNumbers:
+			def __iter__(self):
+				self.a = 1
+		    		return self
+
+		  	def __next__(self):
+		    		if self.a <= 20:
+			      		x = self.a
+			      		self.a += 1
+			      		return x
+			    	else:
+			      		raise StopIteration
+
+		myclass = MyNumbers()
+		myiter = iter(myclass)
+
+		for x in myiter:
+		  print(x)
 
 
 9. Genrator:	Python generators are a simple way of creating iterators
@@ -388,7 +517,9 @@ Module name:
 math		: To carry out different mathematics like trigonometry, logarithms, probability and statistics, etc.
 decimal		: Bydefault in python 1.1+2.2==3.3 will evalutae to False b/e of limitation of our computer hardware. so we can use decimal module instead when we are dealing with financial type of application
 fractions	: Deal with fractional representtion of number
-random
+random		: To get the random number
+datetime	: To work with datetime 
+re(Regex module): To work with regular expression		
 sphinx		: Library used to generate the documentation of a code.
 nbconverter	:Library use to convert the ipynb(Jupyter notebook) into python file.
 Timeit library is used to measure the execution time of a python code snippet
