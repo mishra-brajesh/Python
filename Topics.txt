@@ -33,7 +33,7 @@ Notes:
 9. del var_name[ ,var_name....]	#can be use to delete the object reference.
 10. A module is loaded only once, regardless of the number of times it is imported. This prevents the module execution from happening repeatedly, if multiple imports occur. 
 11. __name__ is special name that is assigned at run time as '__main__ if this is the file from where file starts to run but if it is a imported file then __name__ is something else, So this variable can be used to run statement that should be runned when the file is not imported or imported.
-12. input("something:")#always read as string need to convert into specific type
+12. input("message")#always read as string need to convert into specific type, Use it as input().strip() and if we are taking multiple input in a single string then map(int, input().split())
 4.Python 3 evaluates 3 / 2 as 1.5 by default
 2. print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 	Note
@@ -42,6 +42,7 @@ Notes:
 3. pypi is repo for open-source third-party python package and PIP(Python package manager is used to get all the files related to library) is used to download the package from pypi 
 4. Unit testing -we can use different testing tool pylint,unittest
 5. pip install -r requirements.txt# we can use this command to install a number of libraries mentioned in the text file.
+6.  (int(input()) for _ in range(4)) #for multiple input try using this
 	
 
 11. import this#Zen of python
@@ -110,6 +111,11 @@ Here id(x),id(y),id(z) will be same(address of object in memory)
 		-All string methods returns new values. They do not change the original string.
 		-Ex- print(type(b'bytes for storing data'), type(bytearray(b'bytearrays')))	o/p- <class 'bytes'> <class 'bytearray'>
 		x = memoryview(bytes(5)).  o/p -> <class 'memoryview'>
+		
+		
+			methods
+			1. a.split()#returns a list of string by splitting a using spcae by-default
+			2. "-".join(a)#Here a is list and join function will create a single single with - as a seprating character
 				
 	3. 	Tuple(Ordered, Duplicate, Can't Add, Remove, Update. Can have mutable and immutable elements ) 
 		Ex:	a=()#blank tuple, tup1 = (50,)#tuple with one element
@@ -256,6 +262,7 @@ id(object)#return address of object in memory
 			print("A") if a > b else print("B")	#Short-hand if else
 			if a > b: print("a is greater than b")	#Short-hand if
 			print("A") if a > b else print("+") if a == b else print("B") o/p-> +.  #Ternary operator
+			if n%2 or 6 <= n <= 20:  #We can also change the place of variable and have multiple condition in single statement
 			
 			Note:
 			1. for else loop: else block will be executed if no break occur at for loop and for loop complted.
@@ -539,4 +546,5 @@ Question:
 3. Is forzen_set mutable and it's element immutable?
 4. Difference b/w is and == operator?
 5. Try to create two list with same elements and check the id and ==?
+6. How we can compare sequence with another sequence?
 
